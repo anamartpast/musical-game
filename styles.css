@@ -1,0 +1,69 @@
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container-staff {
+  margin: 50px;
+  height: 40%;
+}
+
+.bar {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 32px;
+  margin: 0 12px;
+  margin-bottom: 48px;
+  width: 2px;
+  border-right: 1px solid black;
+}
+
+.debug .bar {
+  outline: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+.bar.double,
+.bar.end {
+  border-left: 1px solid black;
+}
+
+.bar.end {
+  float: right;
+  border-right-width: 4px;
+  margin-right: 0;
+}
+
+.staff {
+  font-size: 0;
+  background-image: linear-gradient(180deg, #999 0, #999 1px, transparent 1px, transparent 8px, #999 8px, #999 9px, transparent 9px, transparent 16px, #999 16px, #999 17px, transparent 17px, transparent 24px, #999 24px, #999 25px, transparent 25px, transparent 32px, #999 32px, #999 33px, transparent 33px);
+  background-size: 100% 80px;
+}
+
+.staff.debug {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.note {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 32px;
+  margin: 0 12px;
+  margin-bottom: 48px;
+}
+
+#rectangle {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}

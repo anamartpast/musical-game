@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Trabajito</title>
+</head>
+
+<body>
+
+    <div class="container-staff">
+        <div class="staff">
+
+            <div class="bar"></div>
+            <div class="double bar"></div>
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+            <div class="bar end"></div>
+        </div>
+    </div>
+
+    <div class="notes">
+        <div class="note"></div>
+     
+
+    </div>
+
+    <p>Drag image into the rectangle:</p>
+
+    <div id="rectangle" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="drag1" src="images\corchea.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+</body>
+
+</html>
