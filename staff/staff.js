@@ -4,10 +4,13 @@ import { tones, tonePositions } from "./tones.js";
 
 
 export default class Staff {
-
     constructor(hostElement, options = {}) {
         this.hostElement = hostElement;
         this.options = options;
+        this.init();
+    }
+
+    init() {
         this.generate();
         this.draw();
     }
@@ -59,6 +62,7 @@ export default class Staff {
     drawClef() {
         this.clef = createElement({
             type: "img",
+            draggable: false,
             class: "clef",
             src: "/images/clef.png",
             parentElement: this.staff
@@ -83,7 +87,7 @@ export default class Staff {
             type: "span",
             class: "upper-time",
             parentElement: this.staff,
-            number: this.upperTime
+            textContent: this.upperTime
 
         })
 
@@ -91,7 +95,7 @@ export default class Staff {
             type: "span",
             class: "lower-time",
             parentElement: this.staff,
-            number: this.lowerTime
+            textContent: this.lowerTime
         })
 
     }
@@ -131,11 +135,11 @@ export default class Staff {
 
         this.staffNotes = [];
         this.staffNotes = this.noteList;
-        this.staffNotes.pop();
+        //this.correctNote = this.staffNotes.pop();
 
         this.staffNotes.forEach((note, index) => {
-           
             createElement({
+                draggable: false,
                 type: "img",
                 class: "note",
                 src: note.image,
@@ -147,6 +151,14 @@ export default class Staff {
             });
         });
 
+    }
+
+    onResult(fn) {
+        this.resultFn = fn;
+    }
+
+    dispatchResult(data) {
+        this.resultFn(data);
     }
 
     

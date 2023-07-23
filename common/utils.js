@@ -1,4 +1,4 @@
-export function getRandom (from, to) {
+export function getRandom(from, to) {
     if (to === undefined) {
         to = from;
         from = 0;
@@ -8,24 +8,22 @@ export function getRandom (from, to) {
 
 export function createElement(options = {}) {
     const element = document.createElement(options.type);
-    if (options.class) {
-        element.classList.add(options.class)
-    }
-    if (options.id) {
-        element.id = options.id;
-    }
-    if (options.src) {
-        element.src = options.src;
-    }
-    if (options.parentElement) {
-        options.parentElement.appendChild(element);
-    }
-    if(options.number){
-        element.textContent = options.number;
-    }
-    if (options.style) {
-        parseStyle(element, options.style);
-    }
+    Object.keys(options).forEach(key => {
+
+        if (key === 'parentElement') {
+            // Adjuntar a elemento padre
+            options.parentElement.appendChild(element);
+        } else if (key === 'class') {
+            // Añadir clase
+            element.classList.add(options.class);
+        } else if (key === 'style') {
+            // Computar estilos
+            parseStyle(element, options.style);
+        } else {
+            // Asignar atributos
+            element[key] = options[key];
+        }
+    });
 
     return element;
 }
@@ -36,3 +34,23 @@ export function parseStyle(element, styleConfig) {
     });
 }
 
+export function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+export function showMessage(data) {
+    const dialog = document.createElement('dialog');
+    dialog.classList.add(data.type === 'success' ? 'success' : 'error');
+    dialog.innerHTML = `
+        ${data.message}
+        <div>
+            <button type="button" class="close">Cerrar</button>
+        </div>
+    `;
+    dialog.querySelector('button').addEventListener('click', () => dialog.close());
+    document.body.appendChild(dialog);
+    dialog.showModal();
+}

@@ -10,6 +10,10 @@ p {
   overflow-x: hidden;
 }
 
+.body {
+  background: url(../images/cat1.png) 100% 100% / 30vw no-repeat;
+}
+
 #header {
   display: flex;
   flex-direction: row;
@@ -62,27 +66,9 @@ p {
   border-bottom: 2px solid black;
 }
 
-.notes-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 60%;
-  position: relative;
-  height: 120px;
-  box-sizing: border-box;
-}
-
-.note-box {
-  display: flex;
-  height: 80px;
-  width: 80px;
-}
-
 .note {
   position: absolute;
-  height: 60%;
+  height: 85px;
   
 }
 
@@ -98,7 +84,6 @@ p {
   font-size: 50px;
   font-weight: bold;
   position: absolute;
-  height: 80%;
   top: 14%;
   left: 70px;
 }
@@ -108,7 +93,6 @@ p {
   font-size: 50px;
   font-weight: bold;
   position: absolute;
-  height: 80%;
   top: 45%;
   left: 70px;
 }
@@ -123,4 +107,15 @@ p {
 
 #cat1 {
   max-width: 30%;
+}
+
+.event-slot {
+  position: absolute;
+  width: 60px;
+  height: 90px;
+  border: 2px dashed blue;
+}
+
+.event-slot.over {
+  background: #c7dbff;
 }

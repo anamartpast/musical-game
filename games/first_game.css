@@ -1,66 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 
-html,
-body,
-p {
-    margin: 0;
-    padding: 0;
-    font-family: 'poppins', sans-serif;
-
+body {
+  background: url(../images/cat1.png) 100% 100% / 30vw no-repeat;
+  min-height: 100vh;
 }
 
-#header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: rgb(247, 177, 49);
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-
+.grama-container {
+  margin-top: 10vh;
 }
 
-.left {
-    color: white;
-    font-weight: normal;
-    font-size: 28px;
-    text-align: left;
-    width: auto;
-
+.options-container {
+  display: flex;
+  margin-top: 10vh;
+  justify-content: center;
 }
 
-.right {
-    color: white;
-    font-weight: normal;
-    font-size: 28px;
-    text-align: right;
-    width: auto;
+.options {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px 40px;
 }
 
-.grama {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80%;
-    position: relative;
-    height: 140px;
-    box-sizing: border-box;
-    
-  }
-  
-  .box {
-    border: 2px solid black;
-    position: absolute;
-    box-sizing: border-box;
-    width: 100%;
-    height: 66.67%;
-    top: 16.67%;
-  }
-  
-  .row {
-    height: calc(25% - 2px);
-    border-bottom: 2px solid black;
-  }
-  
+.options .node {
+  position: relative;
+  padding: 5px;
+  background: #ededed;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.options .node:hover {
+  background-color: #c7dbff;
+}
+
+.options .node .note {
+  position: initial;
+}
+
+.options-text {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
