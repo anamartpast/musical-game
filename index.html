@@ -3,42 +3,69 @@
 
 <head>
     <meta charset="UTF-8" />
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="home.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Trabajito</title>
+    <link rel="stylesheet" href="home.css" />
+    <title>Juegos musicales</title>
 </head>
 
 <body>
+    <div id="header">
 
-    <div class="container-staff">
-        <div class="staff">
+        <div class="left">
+            <p>¡Hola, user!</p>
+        </div>
 
-            <div class="bar"></div>
-            <div class="double bar"></div>
+        <div class="right">
+            <p>0 puntos</p>
+        </div>
 
-            <div class="bar"></div>
+    </div>
 
-            <div class="bar"></div>
+    <div id="main">
 
-            <div class="bar"></div>
+        <div class="title">
+            <p>Elige un juego</p>
+        </div>
 
-            <div class="bar"></div>
-            <div class="bar end"></div>
+        <div class="game_list">
+
+            <div class="card">
+                <span class="game_title">Juego 1</span>
+                <img src="../images/giphy3.gif">
+                <p>Esta es la descripción del juego 1, esta es la descripción del juego 1, esta es la descripción del juego 1</p>
+                <div class="button_container">
+                    <a class="game_link" href="games/first_game.html">
+                        <button type="button">Jugar</button>
+                    </a>
+            
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="game_title">Juego 2</span>
+                <img src="../images/giphy2.gif">
+                <p>Esta es la descripción del juego 1, esta es la descripción del juego 1, esta es la descripción del juego 1</p>
+                <div class="button_container">
+                    <button type="button">Jugar</button>
+                </div>
+             
+            </div>
+
+            <div class="card">
+                <span class="game_title">Juego 3</span>
+                <img src="../images/giphy3.gif">
+                <p>Esta es la descripción del juego 1, esta es la descripción del juego 1, esta es la descripción del juego 1</p>
+                <div class="button_container">
+                    <button type="button">Jugar</button>
+                </div>
+                
+            
+            </div>
+
+            
         </div>
     </div>
-
-    <div class="notes">
-        <div class="note"></div>
-     
-
-    </div>
-
-    <p>Drag image into the rectangle:</p>
-
-    <div id="rectangle" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <img id="drag1" src="images\corchea.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
 
 </body>
 
