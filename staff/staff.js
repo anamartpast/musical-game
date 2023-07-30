@@ -40,19 +40,19 @@ export default class Staff {
             parentElement: this.staff
         })
 
-        const gramaRow = createElement({
+        createElement({
             type: "div",
             class: "row",
             parentElement: gramaBox
         })
 
-        const gramaRow1 = createElement({
+        createElement({
             type: "div",
             class: "row",
             parentElement: gramaBox
         })
 
-        const gramaRow2 = createElement({
+        createElement({
             type: "div",
             class: "row",
             parentElement: gramaBox
@@ -135,7 +135,6 @@ export default class Staff {
 
         this.staffNotes = [];
         this.staffNotes = this.noteList;
-        //this.correctNote = this.staffNotes.pop();
 
         this.staffNotes.forEach((note, index) => {
             createElement({

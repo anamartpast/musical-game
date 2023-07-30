@@ -41,6 +41,10 @@ body {
   position: initial;
 }
 
+.options .node .time {
+  position: initial;
+}
+
 .options-text {
   display: flex;
   justify-content: center;

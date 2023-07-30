@@ -116,6 +116,75 @@ p {
   border: 2px dashed blue;
 }
 
+.event-slot-time {
+  position: absolute;
+  top: 15%;
+  left: 52px;
+  width: 60px;
+  height: 50px;
+  border: 2px dashed blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-slot-time .upper-time {
+  top: initial;
+  left: initial;
+}
+
 .event-slot.over {
   background: #c7dbff;
+}
+
+.event-slot-time.over {
+  background: #c7dbff;
+}
+
+.options-container {
+  display: flex;
+  margin-top: 10vh;
+  justify-content: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px 40px;
+}
+
+.options .node {
+  position: relative;
+  padding: 5px;
+  background: #ededed;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.options .node:hover {
+  background-color: #c7dbff;
+}
+
+.options .node .note {
+  position: initial;
+}
+
+.options .node .time {
+  position: initial;
+}
+
+.options-text {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.opt-time {
+  position: initial;
+  font-family: 'Vidaloka', serif;
+  font-size: 50px;
+  font-weight: bold;
 }

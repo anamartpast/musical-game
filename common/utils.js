@@ -50,7 +50,10 @@ export function showMessage(data) {
             <button type="button" class="close">Cerrar</button>
         </div>
     `;
-    dialog.querySelector('button').addEventListener('click', () => dialog.close());
+    dialog.querySelector('button').addEventListener('click', () => {
+        dialog.close();
+        document.body.removeChild(dialog);
+    });
     document.body.appendChild(dialog);
     dialog.showModal();
 }
