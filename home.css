@@ -79,6 +79,10 @@ p {
     padding-bottom: 10px;
 }
 
+.game_img {
+    max-width: 70%;
+}
+
 .card p {
     width: 100%;
     margin-top: 20px;
@@ -100,6 +104,7 @@ p {
     font-size: 18px;
     border-color: transparent;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 
