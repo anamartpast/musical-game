@@ -15,7 +15,8 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(247, 177, 49);
+    
+    background: linear-gradient(to right, orange, 10%, pink);
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 10px;
