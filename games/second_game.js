@@ -5,7 +5,7 @@ import { noteScheme } from "../staff/note.js";
 import { createElement, getRandom, showMessage, shuffle } from "../common/utils.js";
 
 // Partitura
-const staff = new MissingTimeStaff(document.querySelector('.grama-container'));
+const staff = new MissingTimeStaff(document.querySelector('.grama-container'), { level: 1 });
 // Cajita de opciones 
 const dashboard = new TimeOptions(document.querySelector('.options-container'));
 

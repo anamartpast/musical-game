@@ -7,11 +7,11 @@ export class Note {
 }
 
 export const noteScheme = [
-    { //quaver
-        eq: 8,
-        image: '/images/quaver.png',
-        time: 5,
-    },
+    // { //quaver
+    //     eq: 8,
+    //     image: '/images/quaver.png',
+    //     time: 5,
+    // },
     { //crotchet
         eq: 4,
         image: '/images/crotchet.png',

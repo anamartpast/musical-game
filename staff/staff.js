@@ -57,6 +57,13 @@ export default class Staff {
             class: "row",
             parentElement: gramaBox
         })
+
+        
+        this.notesContainer = createElement({
+            type: 'div',
+            class: 'notes-container',
+            parentElement: this.staff
+        })
     }
 
     drawClef() {
@@ -71,14 +78,20 @@ export default class Staff {
     }
 
     generateUpperTime() {
-        const numeratorList = [2, 3, 4, 6];
-        const index = getRandom(numeratorList.length - 1);
+        if (this.options.level === 3) {
+            return 4;
+        }
+        let numeratorList = [2, 3];
+        const index = getRandom(numeratorList.length);
         return numeratorList[index];
     }
 
     generateLowerTime() {
-        const denominatorList = [2, 4, 8];
-        const index = getRandom(denominatorList.length - 1);
+        if (this.options.level === 1) {
+            return 4;
+        }
+        const denominatorList = [2, 4];
+        const index = getRandom(denominatorList.length);
         return denominatorList[index];
     }
 
@@ -129,8 +142,6 @@ export default class Staff {
     }
 
     drawNotes() {
-        let left = 130;
-        const length = this.noteList.length;
         const positions = Object.values(tonePositions);
 
         this.staffNotes = [];
@@ -142,14 +153,24 @@ export default class Staff {
                 type: "img",
                 class: "note",
                 src: note.image,
-                parentElement: this.staff,
+                parentElement: this.notesContainer,
                 style: {
                     top: positions[getRandom(positions.length)],
-                    left: `calc((100% - ${left}px) / ${length} * ${index} + ${left}px)`
+                    left: this.getNotePosition(index)
                 }
             });
         });
+    }
 
+    getNotePosition(index) {
+        // Mitad del ancho de una nota
+        const noteHalf = 56 / 2;
+        const numParts = this.noteList.length + 1;
+        // Se divide el div de forma que las notas queden entre las secciones
+        // se resta el ancho de las notas para que queden centradas en dichas divisiones
+        const sectionPerc = 100 / numParts * (index + 1);
+
+        return `calc(${sectionPerc}% - ${noteHalf}px)`;
     }
 
     onResult(fn) {
@@ -160,7 +181,9 @@ export default class Staff {
         this.resultFn(data);
     }
 
-    
+    destroy() {
+        this.staff.remove();
+    }
 
 }
 

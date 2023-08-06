@@ -1,7 +1,5 @@
 import Staff from "../staff/staff.js";
-import { getRandom, createElement } from "../common/utils.js";
-import { tones, tonePositions } from "../staff/tones.js";
-import { noteScheme } from "../staff/note.js";
+import { createElement } from "../common/utils.js";
 
 export default class MissingTimeStaff extends Staff {
     slotEnterCount = 0;
