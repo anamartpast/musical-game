@@ -162,15 +162,15 @@ export default class Staff {
         });
     }
 
-    getNotePosition(index) {
+    getNotePosition(index, symbolWidth = 56) {
         // Mitad del ancho de una nota
-        const noteHalf = 56 / 2;
+        const half = symbolWidth / 2;
         const numParts = this.noteList.length + 1;
         // Se divide el div de forma que las notas queden entre las secciones
         // se resta el ancho de las notas para que queden centradas en dichas divisiones
         const sectionPerc = 100 / numParts * (index + 1);
 
-        return `calc(${sectionPerc}% - ${noteHalf}px)`;
+        return `calc(${sectionPerc}% - ${half}px)`;
     }
 
     onResult(fn) {

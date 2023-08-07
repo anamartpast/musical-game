@@ -7,7 +7,8 @@ body {
 }
 
 .grama-container {
-  margin-top: 10vh;
+  touch-action: none;
+  margin-top: 5vh;
 }
 
 .options-container {
@@ -50,3 +51,60 @@ body {
   justify-content: center;
   padding-top: 15px;
 }
+
+
+.main-panel {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title p {
+  font-size: 20px;
+  font-weight: 100 bold;
+}
+
+
+
+h1 {
+  font-weight: 500;
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.start{
+  width: 10%;
+}
+
+.help-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.help {
+  position: absolute;
+  top: 29%;
+  left: 100%;
+  border: 1px solid silver;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 0px #DDD;
+}
+
+.help:after {
+  content: '';
+  display: block;
+  border: 1px solid red;
+  position: absolute;
+  top: 17px;
+  left: -11px;
+  border-width: 7px 10px 7px 0;
+  border-color: transparent silver transparent transparent;
+}
+

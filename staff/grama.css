@@ -42,6 +42,10 @@ p {
   width: auto;
 }
 
+.grama-container {
+  touch-action: none;
+}
+
 .grama {
   display: block;
   margin-left: auto;

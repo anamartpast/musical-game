@@ -91,20 +91,22 @@ export default class MissingSeparatorStaff extends Staff {
     
     attachEventListeners() {
         // Usuario hace clic en cualquier parte del documento
-        document.body.addEventListener("mousedown", (event) => this.onMouseDown(event));
-        document.body.addEventListener("mousemove", (event) => this.onMouseMove(event));
-        document.body.addEventListener("mouseup", (event) => this.onMouseUp(event));
+        document.body.addEventListener("pointerdown", (event) => this.onMouseDown(event));
+        document.body.addEventListener("pointermove", (event) => this.onMouseMove(event));
+        document.body.addEventListener("pointerup", (event) => this.onMouseUp(event));
     }
 
     onMouseDown(event) {
         const target = event.target;
-        this.lineSeized = this.lineWrapper.contains(target);
+        const seizeLine =  this.lineWrapper.contains(target);
+        this.lineSeized = seizeLine;
     }
 
     onMouseMove(event) {
+        console.warn("MOVIENDO");
         if (!this.lineSeized)
             return;
-
+            
         const pageX = event.pageX;
         const separators = [...this.notesContainer.querySelectorAll(".separator-slot")];
         const distances = separators
@@ -116,6 +118,7 @@ export default class MissingSeparatorStaff extends Staff {
         const left = closestSeparator.style.left;
         this.lineWrapper.style.left = left;
         this.selectedSeparator = index;
+        console.warn(pageX, left, distances);
     }
 
     onMouseUp() {

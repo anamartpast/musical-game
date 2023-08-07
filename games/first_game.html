@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <script type="module" src="first_game.js" defer></script>
+    <script type="module" src="../common/DragDropTouch.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="first_game.css" />
     <link rel="stylesheet" href="../staff/grama.css" />
@@ -12,15 +13,27 @@
 
 <body>
     <div id="header">
-
         <div class="left">
             <p>¡Hola, user!</p>
         </div>
-
         <div class="right">
             <p>0 puntos</p>
         </div>
+    </div>
+    <div class="main-panel">
+        <div class="title">
+            <h4>Nota misteriosa</h4>
+            <p>Arrastra un nota al hueco del pentagrama para que se cumpla el tiempo musical</p>
+        </div>
+        <div class="help-container">
+                <img class="start" src="../images/help.png">
+                <div class="help-copy">
+                    <p>Ayuda</p>
+                </div>
 
+                <!-- La suma de los tiempos de las notas musicales deben corresponder con el tiempo musical que aparece al lado de la clave. -->
+            </div>
+        </div>
     </div>
 
     <div class="grama-container"></div>

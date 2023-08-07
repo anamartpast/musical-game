@@ -12,8 +12,6 @@ export default class MissingNoteStaff extends Staff {
     }
 
     drawNotes() {
-        let left = 130;
-        const length = this.noteList.length;
         const positions = Object.values(tonePositions);
 
         this.indexCorrectNote = getRandom(this.noteList.length);
@@ -25,10 +23,10 @@ export default class MissingNoteStaff extends Staff {
                     type: "img",
                     class: "note",
                     src: note.image,
-                    parentElement: this.staff,
+                    parentElement: this.notesContainer,
                     style: {
                         top: positions[getRandom(positions.length)],
-                        left: `calc((100% - ${left}px) / ${length} * ${index} + ${left}px)`
+                        left: this.getNotePosition(index)
                     }
                 });
             }
@@ -36,16 +34,15 @@ export default class MissingNoteStaff extends Staff {
     }
 
     drawSlot() {
-        const left = 130;
         const defaultTop = tonePositions[tones.LA];
 
         this.slot = createElement({
             type: "div",
             class: "event-slot",
-            parentElement: this.staff,
+            parentElement: this.notesContainer,
             style: {
                 top: defaultTop,
-                left: `calc((100% - ${left}px) / ${this.noteList.length} * ${this.indexCorrectNote} + ${left}px)`
+                left: this.getNotePosition(this.indexCorrectNote, 64)
             }
         });
         this.slot.addEventListener('dragover', (e) => e.preventDefault());
