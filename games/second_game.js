@@ -3,14 +3,15 @@ import TimeOptions from "../games/time_options.js";
 import Staff from "../staff/staff.js";
 import { noteScheme } from "../staff/note.js";
 import { createElement, getRandom, showMessage, shuffle } from "../common/utils.js";
-
-// Partitura
-const staff = new MissingTimeStaff(document.querySelector('.grama-container'), { level: 1 });
-// Cajita de opciones 
-const dashboard = new TimeOptions(document.querySelector('.options-container'));
+import { updateScore, setScore, getScore } from "../common/score.js";
 
 const secondGame = {
+    dashboard : new TimeOptions(document.querySelector('.options-container')),
+    nextLevelButton: document.querySelector("#next-level"),
+
     init: function() {
+        this.createStaff();
+        updateScore();
         // Recoger los posibles tiempos de opciones
         const optionsTimes = this.getOptions();
         // Convertir las notas a opciones válidas para el dashboard de opciones
@@ -19,13 +20,21 @@ const secondGame = {
             element: this.timeToPrint(option) // El elemento html
         }));
         shuffle(optionsElements); // Se mezcla para que salgan desordenadas
-        dashboard.addOptions(optionsElements); // Se añaden al dashboard
+        this.dashboard.addOptions(optionsElements); // Se añaden al dashboard
         // Escucha al evento de resultado
-        staff.onResult((data) => this.onResult(data));
+        this.staff.onResult((data) => this.onResult(data));
+        this.nextLevelButton.addEventListener('click', () => this.onNextLevel())
+    },
+    createStaff: function() {
+        let level = this.staff?.options.level || 0;
+        level++;
+        
+        this.staff?.destroy();
+        this.staff = new MissingTimeStaff(document.querySelector('.grama-container'), { level: level });
     },
     getOptions: function() {
         const generatedTimes = [
-            staff.getCorrectUpperTime() 
+            this.staff.getCorrectUpperTime() 
         ];
 
         while(generatedTimes.length < 3) {
@@ -56,6 +65,19 @@ const secondGame = {
             type: success ? 'success' : 'error',
             message: msg
         });
+
+        if (success) {
+            this.onSuccess();
+        }
+    },
+    onSuccess: function() {
+        setScore(getScore() + 10);
+        updateScore();
+        this.nextLevelButton.style.display = "initial";
+    },
+    onNextLevel: function() {
+        this.nextLevelButton.style.display = "none";
+        this.init();
     }
 }
 

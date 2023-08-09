@@ -20,6 +20,7 @@ export default class TimeOptions {
         if (!Array.isArray(items)) {
             items = [items];
         }
+        this.clean();
         
         items.forEach(item => {
             const wrapper = createElement({
@@ -33,5 +34,9 @@ export default class TimeOptions {
             });
             this.container.appendChild(wrapper);
         });
+    }
+
+    clean() {
+        this.container.innerHTML = '';
     }
 }

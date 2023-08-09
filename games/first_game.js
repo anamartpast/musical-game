@@ -2,14 +2,15 @@ import MissingNoteStaff from "./missing_note_staff.js";
 import NoteOptions from "../games/note_options.js";
 import { noteScheme } from "../staff/note.js";
 import { createElement, getRandom, showMessage, shuffle } from "../common/utils.js";
-
-// Partitura
-const staff = new MissingNoteStaff(document.querySelector('.grama-container'), { level: 1 });
-// Cajita de opciones
-const dashboard = new NoteOptions(document.querySelector('.options-container'));
+import { updateScore, setScore, getScore } from "../common/score.js";
 
 const firstGame = {
+    dashboard: new NoteOptions(document.querySelector('.options-container')),
+    nextLevelButton: document.querySelector("#next-level"),
+
     init: function() {
+        this.createStaff();
+        updateScore();
         // Recoger las posibles notas de las opciones
         const optionsNotes = this.getOptions();
         // Convertir las notas a opciones válidas para el dashboard de opciones
@@ -18,15 +19,23 @@ const firstGame = {
             element: this.noteToElement(option) // El elemento html
         }));
         shuffle(optionsElements); // Se mezcla para que salgan desordenadas
-        dashboard.addOptions(optionsElements); // Se añaden al dashboard
+        this.dashboard.addOptions(optionsElements); // Se añaden al dashboard
         // Escucha al evento de resultado
-        staff.onResult((data) => this.onResult(data));
+        this.staff.onResult((data) => this.onResult(data));
+        this.nextLevelButton.addEventListener('click', () => this.onNextLevel())
+    },
+    createStaff: function() {
+        let level = this.staff?.options.level || 0;
+        level++;
+        
+        this.staff?.destroy();
+        this.staff = new MissingNoteStaff(document.querySelector('.grama-container'), { level: level });
     },
     getOptions: function() {
         // Array donde se almacenan las notas generadas
         // La nota correcta ya la sabemos, así que se añade primera
         const generatedNotes = [
-            staff.getCorrectNote()
+            this.staff.getCorrectNote()
         ];
 
         // Máximo 3 notas generadas, contando la primera
@@ -55,10 +64,24 @@ const firstGame = {
         const msg = success ?
             '¡Genial, sigue así!' :
             '¡Ups! Inténtalo de nuevo';
+
         showMessage({
             type: success ? 'success' : 'error',
             message: msg
         });
+
+        if (success) {
+            this.onSuccess();
+        }
+    },
+    onSuccess: function() {
+        setScore(getScore() + 10);
+        updateScore();
+        this.nextLevelButton.style.display = "initial";
+    },
+    onNextLevel: function() {
+        this.nextLevelButton.style.display = "none";
+        this.init();
     }
 }
 

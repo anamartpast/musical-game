@@ -110,18 +110,6 @@ p {
   left: 70px;
 }
 
-.cat {
-  margin-top: 80px;
-  display: flex;
-  width: 100%;
-  margin-left: 200px;
- 
-}
-
-#cat1 {
-  max-width: 30%;
-}
-
 .event-slot {
   position: absolute;
   width: 60px;
@@ -242,5 +230,23 @@ p {
   display: block;
   position: absolute;
   
+}
+
+.actions {
+  display: flex;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+#next-level {
+  display: initial;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  background: #51e28a;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
 }
 

@@ -20,6 +20,7 @@ export default class NoteOptions {
         if (!Array.isArray(items)) {
             items = [items];
         }
+        this.clean();
         
         items.forEach(item => {
             const wrapper = createElement({
@@ -33,5 +34,9 @@ export default class NoteOptions {
             });
             this.container.appendChild(wrapper);
         });
+    }
+
+    clean() {
+        this.container.innerHTML = '';
     }
 }
