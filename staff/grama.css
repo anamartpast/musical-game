@@ -21,7 +21,7 @@ body {
   justify-content: space-between;
   background: linear-gradient(299deg, rgba(242,191,78,0.7903536414565826) 
   65%, rgba(247,177,4,0.958420868347339) 100%);
-  padding-left: 50px;
+  padding-left: 40px;
   padding-right: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -330,3 +330,22 @@ h1 {
   font-size: 20px;
 }
 
+@media screen and (max-width: 600px)  {
+
+
+  .title p {
+    font-size: 18px;
+    font-weight: 100 bold;
+}
+  .grama {
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+    max-width: none;
+    position: relative;
+    height: 140px;
+    box-sizing: border-box;
+  }
+
+
+}
