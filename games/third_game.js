@@ -2,7 +2,7 @@ import MissingSeparatorStaff from "./missing_separator_staff.js";
 import { showMessage } from "../common/utils.js";
 
 // Partitura
-const staff = new MissingSeparatorStaff(document.querySelector('.grama-container'), { level: 1 });
+const staff = new MissingSeparatorStaff(document.querySelector('.grama-container'), { level: 3 });
 
 const thirdGame = {
     init: function() {
