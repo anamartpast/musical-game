@@ -17,18 +17,34 @@
                 <img class="home-img" src="../images/home.jpg">
             </a>
         </div>
-
         <div class="right">
-            <p>0 puntos</p>
+            <p id="score"></p>
         </div>
+    </div>
 
+    <div class="main-panel">
+        <div class="title">
+            <h1>Mide el compás</h1>
+            <p>Arrastra un nota al hueco del pentagrama para que se cumpla el tiempo musical</p>
+        </div>
+        <div class="help-container">
+                <img class="start" src="../images/help.png">
+                <div class="help-copy">
+                    <p>Ayuda</p>
+                </div>
+
+                <!-- La suma de los tiempos de las notas musicales deben corresponder con el tiempo musical que aparece al lado de la clave. -->
+            </div>
+        </div>
     </div>
 
     <div class="grama-container"></div>
     <div class="options-container"></div>
     <div class="actions">
         <button id="check" type="button">Comprobar</button>
+        <button id="next-level" type="button" style="display: none;">Siguiente nivel</button>
     </div>
+   
     <div class="options-text">
         <span>Mueve la barra para separar los compases correctamente</span>
     </div>

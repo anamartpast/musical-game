@@ -26,7 +26,8 @@ body {
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: space-between;
-    background-color: #0001;
+    background: linear-gradient(299deg, rgba(242,191,78,0.7903536414565826) 
+    65%, rgba(247,177,4,0.958420868347339) 100%);
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 10px;
