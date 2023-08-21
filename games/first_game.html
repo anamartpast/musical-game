@@ -28,14 +28,16 @@
         </div>
         <div class="help-container">
                 <img class="start" src="../images/help.png">
-                <div class="help-copy">
-                    <p>Ayuda</p>
-                </div>
-
-                <!-- La suma de los tiempos de las notas musicales deben corresponder con el tiempo musical que aparece al lado de la clave. -->
-            </div>
+                <div class="help-copy" onclick="window.dialog.showModal();" >Ayuda</div>
         </div>
+        <dialog id="dialog">
+            <h2>Teoría de compases</h2>
+            <p>Esta es la teoría de compases yuhuuuuu</p>
+            <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+        </dialog>
     </div>
+
+
 
     <div class="grama-container"></div>
     <div class="actions">

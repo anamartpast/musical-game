@@ -312,6 +312,12 @@ h1 {
   border-color: transparent silver transparent transparent;
 }
 
+#dialog {
+  border: 1px solid silver;
+  border-radius: 5px;
+  
+}
+
 .actions {
   display: flex;
   margin: 15px 0;
@@ -349,3 +355,11 @@ h1 {
 
 
 }
+
+
+
+
+
+
+
+
