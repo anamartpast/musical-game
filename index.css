@@ -50,6 +50,10 @@ body {
     width: auto;
 }
 
+#reset-score {
+    cursor: pointer;
+}
+
 #main {
     display: flex;
     flex-direction: row;
@@ -87,7 +91,7 @@ body {
     box-sizing: border-box;
     padding: 10px;
     gap: 10px;
-    width: 540px;
+    width: 600px;
     box-shadow: 0 0 5px 1px #ffa50026;
     max-width: 100%;
 }
