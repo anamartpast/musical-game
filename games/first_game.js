@@ -22,7 +22,6 @@ const firstGame = {
         this.dashboard.addOptions(optionsElements); // Se añaden al dashboard
         // Escucha al evento de resultado
         this.staff.onResult((data) => this.onResult(data));
-        this.nextLevelButton.addEventListener('click', () => this.onNextLevel())
     },
     createStaff: function() {
         let level = this.staff?.options.level || 0;
@@ -60,12 +59,12 @@ const firstGame = {
             src: note.image
         });
     },
-    onResult: function(success) {
+    onResult: async function(success) {
         const msg = success ?
             '¡Genial, sigue así!' :
             '¡Ups! Inténtalo de nuevo';
 
-        showMessage({
+        await showMessage({
             type: success ? 'success' : 'error',
             message: msg
         });
@@ -77,10 +76,9 @@ const firstGame = {
     onSuccess: function() {
         setScore(getScore() + 10);
         updateScore();
-        this.nextLevelButton.style.display = "initial";
+        this.onNextLevel();
     },
     onNextLevel: function() {
-        this.nextLevelButton.style.display = "none";
         this.init();
     }
 }

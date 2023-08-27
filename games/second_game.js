@@ -57,11 +57,11 @@ const secondGame = {
             textContent: time
         });
     },
-    onResult: function(success) {
+    onResult: async function(success) {
         const msg = success ?
             '¡Genial, sigue así!' :
             '¡Ups! Inténtalo de nuevo';
-        showMessage({
+        await showMessage({
             type: success ? 'success' : 'error',
             message: msg
         });
@@ -73,10 +73,9 @@ const secondGame = {
     onSuccess: function() {
         setScore(getScore() + 10);
         updateScore();
-        this.nextLevelButton.style.display = "initial";
+        this.onNextLevel();
     },
     onNextLevel: function() {
-        this.nextLevelButton.style.display = "none";
         this.init();
     }
 }

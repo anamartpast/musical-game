@@ -90,7 +90,7 @@ export default class MissingSeparatorStaff extends Staff {
     }
     
     attachEventListeners() {
-        // Usuario hace clic en cualquier parte del documento
+        // Usuario hace click en cualquier parte del documento
         document.body.addEventListener("pointerdown", (event) => this.onMouseDown(event));
         document.body.addEventListener("pointermove", (event) => this.onMouseMove(event));
         document.body.addEventListener("pointerup", (event) => this.onMouseUp(event));
@@ -103,7 +103,6 @@ export default class MissingSeparatorStaff extends Staff {
     }
 
     onMouseMove(event) {
-        console.warn("MOVIENDO");
         if (!this.lineSeized)
             return;
             
@@ -118,7 +117,6 @@ export default class MissingSeparatorStaff extends Staff {
         const left = closestSeparator.style.left;
         this.lineWrapper.style.left = left;
         this.selectedSeparator = index;
-        console.warn(pageX, left, distances);
     }
 
     onMouseUp() {

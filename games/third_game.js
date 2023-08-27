@@ -4,7 +4,6 @@ import { updateScore, setScore, getScore } from "../common/score.js";
 
 
 const thirdGame = {
-    nextLevelButton: document.querySelector("#next-level"),
 
     init: function() {
         this.createStaff();
@@ -12,7 +11,6 @@ const thirdGame = {
         const button = document.querySelector("#check");
         button.addEventListener('click', () => this.onSubmit());
         this.staff.onResult((data) => this.onResult(data));
-        this.nextLevelButton.addEventListener('click', () => this.onNextLevel())
     },
     createStaff: function() {
         let level = this.staff?.options.level || 0;
@@ -29,11 +27,11 @@ const thirdGame = {
 
         this.staff.resolve();
     },
-    onResult: function(success) {
+    onResult: async function(success) {
         const msg = success ?
             '¡Genial, sigue así!' :
             '¡Ups! Inténtalo de nuevo';
-        showMessage({
+        await showMessage({
             type: success ? 'success' : 'error',
             message: msg
         });
@@ -45,10 +43,9 @@ const thirdGame = {
     onSuccess: function() {
         setScore(getScore() + 10);
         updateScore();
-        this.nextLevelButton.style.display = "initial";
+        this.onNextLevel();
     },
     onNextLevel: function() {
-        this.nextLevelButton.style.display = "none";
         this.init();
     }
     

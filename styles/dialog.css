@@ -1,0 +1,55 @@
+dialog {
+    border: 1px solid lightgrey;
+    padding: 25px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-sizing: border-box;
+    max-height: 90vh;
+    max-width: 95vw;
+    overflow-y: auto;
+}
+
+dialog p {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+dialog .buttons {
+    display: block;
+    margin-top: 30px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+dialog .buttons button {
+    outline: 0;
+    border: 0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #93aac0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+dialog.success button {
+    background-color: #51e28a;
+}
+
+dialog .close-icon {
+    outline: 0;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 0;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+dialog img {
+    max-width: 100%;
+}

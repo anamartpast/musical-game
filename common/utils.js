@@ -42,18 +42,49 @@ export function shuffle(array) {
 }
 
 export function showMessage(data) {
-    const dialog = document.createElement('dialog');
-    dialog.classList.add(data.type === 'success' ? 'success' : 'error');
-    dialog.innerHTML = `
-        ${data.message}
-        <div>
-            <button type="button" class="close">Cerrar</button>
-        </div>
-    `;
-    dialog.querySelector('button').addEventListener('click', () => {
-        dialog.close();
-        document.body.removeChild(dialog);
+    return new Promise((resolve) => {
+        const dialog = document.createElement('dialog');
+        dialog.classList.add(data.type === 'success' ? 'success' : 'error');
+        dialog.innerHTML = `
+            <span>${data.message}</span>
+            <div class="buttons">
+                <button type="button" class="close">${data.type === 'success' ? 'Siguiente nivel' : 'Cerrar' }</button>
+            </div>
+        `;
+        dialog.querySelector('button').addEventListener('click', () => {
+            dialog.close();
+            document.body.removeChild(dialog);
+            resolve();
+        });
+        document.body.appendChild(dialog);
+        dialog.showModal();
     });
-    document.body.appendChild(dialog);
-    dialog.showModal();
+}
+
+export function showMessageOpt(data) {
+    return new Promise((resolve) => {
+        const dialog = document.createElement('dialog');
+        dialog.innerHTML = `
+            <span>${data.message}</span>
+            <div class="buttons">
+            </div>
+        `;
+        const buttonsContainer = dialog.querySelector(".buttons");
+
+        data.buttons.forEach((button, index) => {
+            const btn = document.createElement('button');
+            btn.type = "button";
+            btn.classList.add(button.class);
+            btn.innerText = button.text;
+            buttonsContainer.appendChild(btn);
+            btn.addEventListener('click', () => {
+                dialog.close();
+                document.body.removeChild(dialog);
+                resolve(index);
+            })
+        })
+
+        document.body.appendChild(dialog);
+        dialog.showModal();
+    });
 }

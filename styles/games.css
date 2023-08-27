@@ -1,3 +1,5 @@
+@import "dialog.css";
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 
@@ -223,6 +225,7 @@ body {
 }
 
 .line-wrapper .comment {
+  background: white;
   position: absolute;
   bottom: -60px;
   left: -53px;
@@ -280,8 +283,8 @@ h1 {
   margin-inline-end: 0px;
 }
 
-.start{
-  width: 10%;
+.star{
+  width: 100px;
 }
 
 .help-container {
@@ -291,31 +294,10 @@ h1 {
   align-items: center;
 }
 
-.help {
-  position: absolute;
-  top: 29%;
-  left: 100%;
-  border: 1px solid silver;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px 0px #DDD;
-}
-
-.help:after {
-  content: '';
-  display: block;
-  border: 1px solid red;
-  position: absolute;
-  top: 17px;
-  left: -11px;
-  border-width: 7px 10px 7px 0;
-  border-color: transparent silver transparent transparent;
-}
-
-#dialog {
-  border: 1px solid silver;
-  border-radius: 5px;
-  
+.help-text {
+  cursor: pointer;
+  color: #3f76b1;
+  text-decoration: underline;
 }
 
 .actions {
@@ -336,13 +318,12 @@ h1 {
   font-size: 20px;
 }
 
+
 @media screen and (max-width: 600px)  {
-
-
   .title p {
     font-size: 18px;
     font-weight: 100 bold;
-}
+  }
   .grama {
     display: block;
     margin-left: 5px;
@@ -352,8 +333,10 @@ h1 {
     height: 140px;
     box-sizing: border-box;
   }
-
-
+  .star {
+    width: 50px;
+    cursor: pointer;
+  }
 }
 
 

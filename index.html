@@ -6,6 +6,7 @@
     <script type="module" src="index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <title>Juegos musicales</title>
 </head>
 
@@ -17,7 +18,8 @@
         </div>
 
         <div class="right">
-            <p id="score"></p>
+            <span id="score"></span>
+            <span id="reset-score">↻</span>
         </div>
 
     </div>
@@ -31,9 +33,9 @@
         <div class="game_list">
 
             <div class="card">
-                <span class="game_title">Nota misteriosa</span>
                 <img class="game_img" src="../images/first_game_transparent.png">
-                <div class="button_container">
+                <div class="info">
+                    <span class="game_title">Nota misteriosa</span>
                     <a class="game_link" href="games/first_game.html">
                         <button type="button">Jugar</button>
                     </a>
@@ -42,9 +44,9 @@
             </div>
 
             <div class="card">
-                <span class="game_title">Adivina el tiempo</span>
                 <img class="game_img" src="../images/second_game.png">
-                <div class="button_container">
+                <div class="info">
+                    <span class="game_title">Adivina el tiempo</span>
                     <a class="game_link" href="games/second_game.html">
                         <button type="button">Jugar</button>
                     </a>
@@ -53,9 +55,9 @@
             </div>
 
             <div class="card">
-                <span class="game_title">Mide el compás</span>
                 <img class="game_img" src="../images/third_game.png">
-                <div class="button_container">
+                <div class="info">
+                    <span class="game_title">Divide los compases</span>
                     <a class="game_link" href="games/third_game.html">
                         <button type="button">Jugar</button>
                     </a>

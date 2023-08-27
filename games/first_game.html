@@ -6,7 +6,8 @@
     <script type="module" src="first_game.js" defer></script>
     <script type="module" src="../common/DragDropTouch.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../staff/grama.css" />
+    <link rel="stylesheet" href="../styles/games.css">
+    <link rel="icon" type="../image/x-icon" href="/images/favicon.png">
     <title>Nota misteriosa</title>
 </head>
 
@@ -24,25 +25,29 @@
     <div class="main-panel">
         <div class="title">
             <h1>Nota misteriosa</h1>
-            <p>Arrastra un nota al hueco del pentagrama para que se cumpla el tiempo musical</p>
+            <p>Arrastra una nota al hueco del pentagrama para que se cumpla el tiempo musical</p>
         </div>
         <div class="help-container">
-                <img class="start" src="../images/help.png">
-                <div class="help-copy" onclick="window.dialog.showModal();" >Ayuda</div>
+            <img class="star" src="../images/help.png">
+            <div class="help-text" onclick="window.dialog.showModal();">Ayuda</div>
         </div>
         <dialog id="dialog">
-            <h2>Teoría de compases</h2>
-            <p>Esta es la teoría de compases yuhuuuuu</p>
-            <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+            <button onclick="window.dialog.close();" aria-label="close" class="close-icon">✖</button>
+            <h3>Teoría de compases</h3>
+            <p>El compás es el espacio que hay entre dos líneas divisorias.</p>
+            <img src="../images/compas.jpg">
+            <p>El numerador, o el número ubicado en la parte superior, indica cuantos tiempos contiene cada compás.</p>
+            <p>El denominador indica cuánto dura cada tiempo y cual la figura que se usa como referencia.</p>
+            <p>Los números que representa cada figura son los siguientes:</p>
+            <br></br>
+            <img src="../images/tiempos.jpg">
+            <div class="buttons">
+                <button onclick="window.dialog.close();">Cerrar</button>
+            </div>
         </dialog>
     </div>
 
-
-
     <div class="grama-container"></div>
-    <div class="actions">
-        <button id="next-level" type="button" style="display: none;">Siguiente nivel</button>
-    </div>
     <div class="options-container"></div>
     <div class="options-text">
         <span>Arrastra al pentagrama la nota correcta</span>
