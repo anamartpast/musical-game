@@ -1,7 +1,5 @@
 import MissingTimeStaff from "./missing_time_staff.js";
 import TimeOptions from "../games/time_options.js";
-import Staff from "../staff/staff.js";
-import { noteScheme } from "../staff/note.js";
 import { createElement, getRandom, showMessage, shuffle } from "../common/utils.js";
 import { updateScore, setScore, getScore } from "../common/score.js";
 

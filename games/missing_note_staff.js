@@ -105,4 +105,9 @@ export default class MissingNoteStaff extends Staff {
     getCorrectNote() {
         return this.noteList[this.indexCorrectNote];
     }
+
+    destroy() {
+        super.destroy();
+        this.slot.remove();
+    }
 }

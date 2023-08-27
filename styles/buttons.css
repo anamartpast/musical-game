@@ -1,0 +1,21 @@
+.buttons,
+.actions {
+    display: block;
+    margin-top: 30px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttons button,
+.actions button {
+    outline: 0;
+    border: 0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #93aac0;
+    font-size: 20px;
+    cursor: pointer;
+}

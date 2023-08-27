@@ -8,8 +8,11 @@ const thirdGame = {
     init: function() {
         this.createStaff();
         updateScore();
-        const button = document.querySelector("#check");
-        button.addEventListener('click', () => this.onSubmit());
+        if (!this.submitEventAttached) {
+            const button = document.querySelector("#check");
+            button.addEventListener('click', () => this.onSubmit());
+            this.submitEventAttached = true;
+        }
         this.staff.onResult((data) => this.onResult(data));
     },
     createStaff: function() {
@@ -21,6 +24,9 @@ const thirdGame = {
     },
     onSubmit: function() {
         if (this.staff.selectedSeparator === undefined) {
+            showMessage({
+                message: "Tienes que mover el separador a su sitio correcto"
+            })
             // TODO: "Tienes que mover el separador a su sitio correcto"
             return;
         }
