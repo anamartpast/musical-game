@@ -23,7 +23,7 @@ async function resetScore() {
         return;
 
     setScore(0);
-    updateScore();        
+    updateScore();
 }
 
 init();
