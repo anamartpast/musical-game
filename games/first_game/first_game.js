@@ -1,8 +1,8 @@
 import MissingNoteStaff from "./missing_note_staff.js";
-import NoteOptions from "../games/note_options.js";
-import { noteScheme } from "../staff/note.js";
-import { createElement, getRandom, showMessage, shuffle } from "../common/utils.js";
-import { updateScore, setScore, getScore } from "../common/score.js";
+import NoteOptions from "./note_options.js";
+import { noteScheme } from "../../staff/note.js";
+import { createElement, getRandom, showMessage, shuffle } from "../../common/utils.js";
+import { updateScore, setScore, getScore } from "../../common/score.js";
 
 const firstGame = {
     dashboard: new NoteOptions(document.querySelector('.options-container')),

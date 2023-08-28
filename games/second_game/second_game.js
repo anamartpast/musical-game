@@ -1,7 +1,7 @@
 import MissingTimeStaff from "./missing_time_staff.js";
-import TimeOptions from "../games/time_options.js";
-import { createElement, getRandom, showMessage, shuffle } from "../common/utils.js";
-import { updateScore, setScore, getScore } from "../common/score.js";
+import TimeOptions from "./time_options.js";
+import { createElement, getRandom, showMessage, shuffle } from "../../common/utils.js";
+import { updateScore, setScore, getScore } from "../../common/score.js";
 
 const secondGame = {
     dashboard : new TimeOptions(document.querySelector('.options-container')),

@@ -1,6 +1,6 @@
 import MissingSeparatorStaff from "./missing_separator_staff.js";
-import { showMessage } from "../common/utils.js";
-import { updateScore, setScore, getScore } from "../common/score.js";
+import { showMessage } from "../../common/utils.js";
+import { updateScore, setScore, getScore } from "../../common/score.js";
 
 
 const thirdGame = {

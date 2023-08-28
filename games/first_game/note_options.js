@@ -1,7 +1,7 @@
-import { getRandom, createElement } from "../common/utils.js";
+import { createElement } from "../../common/utils.js";
 
 
-export default class TimeOptions {
+export default class NoteOptions {
 
     constructor(hostElement) {
         this.hostElement = hostElement;

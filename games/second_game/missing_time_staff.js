@@ -1,5 +1,5 @@
-import Staff from "../staff/staff.js";
-import { createElement } from "../common/utils.js";
+import Staff from "../../staff/staff.js";
+import { createElement } from "../../common/utils.js";
 
 export default class MissingTimeStaff extends Staff {
     slotEnterCount = 0;

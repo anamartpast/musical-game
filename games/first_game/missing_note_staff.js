@@ -1,7 +1,7 @@
-import Staff from "../staff/staff.js";
-import { getRandom, createElement } from "../common/utils.js";
-import { tones, tonePositions } from "../staff/tones.js";
-import { noteScheme } from "../staff/note.js";
+import Staff from "../../staff/staff.js";
+import { getRandom, createElement } from "../../common/utils.js";
+import { tones, tonePositions } from "../../staff/tones.js";
+import { noteScheme } from "../../staff/note.js";
 
 export default class MissingNoteStaff extends Staff {
     slotEnterCount = 0;

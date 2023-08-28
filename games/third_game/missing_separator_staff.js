@@ -1,7 +1,7 @@
-import Staff from "../staff/staff.js";
-import { createElement } from "../common/utils.js";
+import Staff from "../../staff/staff.js";
+import { createElement } from "../../common/utils.js";
 
-import { Note, noteScheme } from "../staff/note.js";
+import { noteScheme } from "../../staff/note.js";
 
 export default class MissingSeparatorStaff extends Staff {
     generate() {

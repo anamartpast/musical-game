@@ -1,6 +1,6 @@
 import { getRandom, createElement } from "../common/utils.js";
-import { Note, noteScheme } from "./note.js";
-import { tones, tonePositions } from "./tones.js";
+import { noteScheme } from "./note.js";
+import { tonePositions } from "./tones.js";
 
 
 export default class Staff {
