@@ -1,5 +1,5 @@
 import { getRandom, createElement } from "../common/utils.js";
-import { noteScheme } from "./note.js";
+import { noteScheme, silenceScheme } from "./note.js";
 import { tonePositions } from "./tones.js";
 
 
@@ -58,7 +58,7 @@ export default class Staff {
             parentElement: gramaBox
         })
 
-        
+
         this.notesContainer = createElement({
             type: 'div',
             class: 'notes-container',
@@ -127,9 +127,24 @@ export default class Staff {
 
         let remainingTime = this.totalTime;
         this.noteList = [];
+        console.log("STAFF GENERATE", this.options.level, this.getSilenceNotes())
 
         while (remainingTime !== 0) {
-            const allowedNotes = noteScheme.filter(noteInfo => noteInfo.time <= remainingTime);
+            const initialScheme = [...noteScheme];
+            initialScheme.push(...this.getSilenceNotes());
+
+            this.noteList = this.getSilenceNotes();
+
+            const allowedNotes = initialScheme.filter(noteInfo => {
+                let isSameSilenceNote = false;
+                const lastNote = this.noteList.at(-1);
+
+                if (lastNote)
+                    isSameSilenceNote = lastNote.silence && noteInfo.silence && lastNote.time === noteInfo.time;
+
+                return noteInfo.time <= remainingTime && !isSameSilenceNote;
+            });
+            
             const index = getRandom(allowedNotes.length);
             const note = allowedNotes[index];
 
@@ -139,6 +154,19 @@ export default class Staff {
 
             console.log(this.noteList);
         }
+    }
+
+    getSilenceNotes() {
+        const gameLevel = this.options.level;
+
+        if (gameLevel === 1)
+            return [];
+    
+        if (gameLevel === 2)
+            return [silenceScheme.at(0)];
+
+        if (gameLevel === 3)
+            return silenceScheme;
     }
 
     drawNotes() {
@@ -155,7 +183,7 @@ export default class Staff {
                 src: note.image,
                 parentElement: this.notesContainer,
                 style: {
-                    top: positions[getRandom(positions.length)],
+                    top: positions[note.tone || getRandom(positions.length)],
                     left: this.getNotePosition(index)
                 }
             });

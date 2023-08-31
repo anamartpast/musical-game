@@ -48,7 +48,7 @@ export function showMessage(data) {
         dialog.innerHTML = `
             <span>${data.message}</span>
             <div class="buttons">
-                <button type="button" class="close">${data.type === 'success' ? 'Siguiente nivel' : 'Cerrar' }</button>
+                <button type="button" class="close">${data.type === 'success' ? 'Siguiente' : 'Cerrar' }</button>
             </div>
         `;
         dialog.querySelector('button').addEventListener('click', () => {

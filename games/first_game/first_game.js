@@ -2,9 +2,10 @@ import MissingNoteStaff from "./missing_note_staff.js";
 import NoteOptions from "./note_options.js";
 import { noteScheme } from "../../staff/note.js";
 import { createElement, getRandom, showMessage, shuffle } from "../../common/utils.js";
-import { updateScore, setScore, getScore } from "../../common/score.js";
+import { updateScore, setScore, getScore, getLevel, addStep } from "../../common/score.js";
 
 const firstGame = {
+    name: "missingNote",
     dashboard: new NoteOptions(document.querySelector('.options-container')),
     nextLevelButton: document.querySelector("#next-level"),
 
@@ -14,7 +15,7 @@ const firstGame = {
         // Recoger las posibles notas de las opciones
         const optionsNotes = this.getOptions();
         // Convertir las notas a opciones válidas para el dashboard de opciones
-        const optionsElements = optionsNotes.map(option => ({
+        const optionsElements = noteScheme.map(option => ({
             value: option.eq, // El valor que luego se comprobará en staff
             element: this.noteToElement(option) // El elemento html
         }));
@@ -24,10 +25,9 @@ const firstGame = {
         this.staff.onResult((data) => this.onResult(data));
     },
     createStaff: function() {
-        let level = this.staff?.options.level || 0;
-        level++;
-        
         this.staff?.destroy();
+
+        let level = getLevel(this.name);
         this.staff = new MissingNoteStaff(document.querySelector('.grama-container'), { level: level });
     },
     getOptions: function() {
@@ -60,13 +60,24 @@ const firstGame = {
         });
     },
     onResult: async function(success) {
-        const msg = success ?
-            '¡Genial, sigue así!' :
-            '¡Ups! Inténtalo de nuevo';
+        const msgArr = [
+            '¡Ups! Inténtalo de nuevo',
+            '¡Genial, sigue así!',
+            '¡Bien hecho, has completado el nivel!'
+        ];
+
+        let msgIndex = 0;
+
+        if (success) {
+            msgIndex = 1;
+            const nextLevel = addStep(this.name);
+            if (nextLevel)
+                msgIndex = 2;
+        }
 
         await showMessage({
             type: success ? 'success' : 'error',
-            message: msg
+            message: msgArr[msgIndex]
         });
 
         if (success) {

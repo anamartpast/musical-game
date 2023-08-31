@@ -25,7 +25,7 @@ export default class MissingNoteStaff extends Staff {
                     src: note.image,
                     parentElement: this.notesContainer,
                     style: {
-                        top: positions[getRandom(positions.length)],
+                        top: positions[note.tone || getRandom(positions.length)],
                         left: this.getNotePosition(index)
                     }
                 });
