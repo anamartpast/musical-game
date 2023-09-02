@@ -51,7 +51,6 @@ export default class MissingTimeStaff extends Staff {
         } else {
             this.slotEnterCount--;
         }
-        console.log("leave", this.slotEnterCount);
         this.updateSlotClass();
     }
 

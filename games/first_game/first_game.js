@@ -1,8 +1,8 @@
 import MissingNoteStaff from "./missing_note_staff.js";
 import NoteOptions from "./note_options.js";
 import { noteScheme } from "../../staff/note.js";
-import { createElement, getRandom, showMessage, shuffle } from "../../common/utils.js";
-import { updateScore, setScore, getScore, getLevel, addStep } from "../../common/score.js";
+import { createElement, getRandom, showLevelMessage, showMessage, shuffle } from "../../common/utils.js";
+import { updateScore, setScore, getScore, getLevel, addStep, updateLevel } from "../../common/score.js";
 
 const firstGame = {
     name: "missingNote",
@@ -12,8 +12,7 @@ const firstGame = {
     init: function() {
         this.createStaff();
         updateScore();
-        // Recoger las posibles notas de las opciones
-        const optionsNotes = this.getOptions();
+        updateLevel(this.name);
         // Convertir las notas a opciones válidas para el dashboard de opciones
         const optionsElements = noteScheme.map(option => ({
             value: option.eq, // El valor que luego se comprobará en staff
@@ -62,8 +61,7 @@ const firstGame = {
     onResult: async function(success) {
         const msgArr = [
             '¡Ups! Inténtalo de nuevo',
-            '¡Genial, sigue así!',
-            '¡Bien hecho, has completado el nivel!'
+            '¡Genial, sigue así!'
         ];
 
         let msgIndex = 0;
@@ -75,12 +73,25 @@ const firstGame = {
                 msgIndex = 2;
         }
 
+        if (msgIndex === 2) {
+            this.onLevelUp();
+            return;
+        }
+
         await showMessage({
             type: success ? 'success' : 'error',
             message: msgArr[msgIndex]
         });
 
         if (success) {
+            this.onSuccess();
+        }
+    },
+    onLevelUp: async function() {
+        const selectedBtn = await showLevelMessage();
+        if (selectedBtn === 1) {
+            location.href = "/";
+        } else {
             this.onSuccess();
         }
     },

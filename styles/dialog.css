@@ -35,3 +35,16 @@ dialog .close-icon {
 dialog img {
     max-width: 100%;
 }
+
+dialog button.red {
+    background-color: red;
+}
+
+dialog button.green {
+    background-color: #51e28a;
+}
+
+dialog .buttons {
+    gap: 10px;
+    flex-direction: column;
+}

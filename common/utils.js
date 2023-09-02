@@ -74,7 +74,8 @@ export function showMessageOpt(data) {
         data.buttons.forEach((button, index) => {
             const btn = document.createElement('button');
             btn.type = "button";
-            btn.classList.add(button.class);
+            if (button.class)
+                btn.classList.add(button.class);
             btn.innerText = button.text;
             buttonsContainer.appendChild(btn);
             btn.addEventListener('click', () => {
@@ -86,5 +87,18 @@ export function showMessageOpt(data) {
 
         document.body.appendChild(dialog);
         dialog.showModal();
+    });
+}
+
+export function showLevelMessage() {
+    const msg = "¡Bien hecho, has completado el nivel!";
+    const buttons = [
+        { text: "Siguiente nivel", class: 'green' },
+        { text: "Ver otros juegos" }
+    ];
+
+    return showMessageOpt({
+        message: msg,
+        buttons: buttons
     });
 }

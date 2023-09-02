@@ -13,9 +13,20 @@ export function updateScore(elementQuery = '#score') {
     document.querySelector(elementQuery).textContent = getScore() + " puntos";
 }
 
+export function updateLevel(type, elementQuery = ".level span") {
+    const levelDescription = [
+        'Fácil',
+        'Intermedio',
+        'Avanzado'
+    ];
+
+    const level = getLevel(type);
+    document.querySelector(elementQuery).innerText = levelDescription[level];
+}
+
 // Recoger nivel en base a step
 export function getLevel(type) {
-    const level = 1 + Math.floor(getStep(type) / STEPS_PER_LEVEL);
+    const level = Math.floor(getStep(type) / STEPS_PER_LEVEL);
 
     return level > MAX_LEVEL ? MAX_LEVEL : level;
 }

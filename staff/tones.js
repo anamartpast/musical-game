@@ -12,7 +12,7 @@ export const tones = {
 export const tonePositions = {
     [tones.S_CROTCHET]: "12%",
     [tones.S_MINIM]: "-2%",
-    [tones.S_SEMIBREVE]: "-9%",
+    [tones.S_SEMIBREVE]: "-8%",
     [tones.RE]: "40%",
     [tones.MI]: "32%",
     [tones.FA]: "23%",

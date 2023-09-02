@@ -134,9 +134,6 @@ body {
     padding: 10px 30px;
 }
 
-dialog button.confirm {
-    background-color: red;
-}
 
 
 @media screen and (max-width: 900px) {

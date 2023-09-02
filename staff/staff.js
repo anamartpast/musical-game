@@ -78,7 +78,7 @@ export default class Staff {
     }
 
     generateUpperTime() {
-        if (this.options.level === 3) {
+        if (this.options.level === 2) {
             return 4;
         }
         let numeratorList = [2, 3];
@@ -87,7 +87,7 @@ export default class Staff {
     }
 
     generateLowerTime() {
-        if (this.options.level === 1) {
+        if (this.options.level === 0) {
             return 4;
         }
         const denominatorList = [2, 4];
@@ -127,13 +127,10 @@ export default class Staff {
 
         let remainingTime = this.totalTime;
         this.noteList = [];
-        console.log("STAFF GENERATE", this.options.level, this.getSilenceNotes())
 
         while (remainingTime !== 0) {
             const initialScheme = [...noteScheme];
             initialScheme.push(...this.getSilenceNotes());
-
-            this.noteList = this.getSilenceNotes();
 
             const allowedNotes = initialScheme.filter(noteInfo => {
                 let isSameSilenceNote = false;
@@ -151,21 +148,19 @@ export default class Staff {
             this.noteList.push(note);
 
             remainingTime = remainingTime - note.time;
-
-            console.log(this.noteList);
         }
     }
 
     getSilenceNotes() {
         const gameLevel = this.options.level;
 
-        if (gameLevel === 1)
+        if (gameLevel === 0)
             return [];
     
-        if (gameLevel === 2)
+        if (gameLevel === 1)
             return [silenceScheme.at(0)];
 
-        if (gameLevel === 3)
+        if (gameLevel === 2)
             return silenceScheme;
     }
 

@@ -60,7 +60,6 @@ export default class MissingNoteStaff extends Staff {
 
     onEnterSlot() {
         this.slotEnterCount++;
-        console.log("enter", this.slotEnterCount)
         this.updateSlotClass();
     }
 
@@ -70,7 +69,6 @@ export default class MissingNoteStaff extends Staff {
         } else {
             this.slotEnterCount--;
         }
-        console.log("leave", this.slotEnterCount);
         this.updateSlotClass();
     }
 

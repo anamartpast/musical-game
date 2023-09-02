@@ -28,7 +28,7 @@ export const silenceScheme = [
     },
     {
         eq: 2,
-        image: '/images/minim.png',
+        image: '/images/silence_w.png',
         time: 20,
         silence: true,
         tone: tones.S_MINIM

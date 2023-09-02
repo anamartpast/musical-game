@@ -1,4 +1,4 @@
-import { updateScore, setScore } from "../common/score.js";
+import { updateScore, setScore, setStep } from "../common/score.js";
 import { showMessageOpt } from "./common/utils.js";
 
 function init() {
@@ -14,7 +14,7 @@ async function resetScore() {
     const response = await showMessageOpt({
         message: "¿Deseas poner a 0 el contador de puntos?",
         buttons: [
-            { text: "Sí", class: "confirm" },
+            { text: "Sí", class: "red" },
             { text: "No", class: "reject" }
         ]
     });
@@ -24,6 +24,9 @@ async function resetScore() {
 
     setScore(0);
     updateScore();
+    setStep("missingNote", 0);
+    setStep("missingTime", 0);
+    setStep("missingSeparator", 0);
 }
 
 init();
