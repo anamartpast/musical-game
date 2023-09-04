@@ -10,6 +10,7 @@ dialog {
     max-height: 90vh;
     max-width: 95vw;
     overflow-y: auto;
+    text-align: left;
 }
 
 dialog p {
@@ -33,7 +34,8 @@ dialog .close-icon {
 }
 
 dialog img {
-    max-width: 100%;
+    max-width: 85%;
+    margin-top: 12px;
 }
 
 dialog button.red {
