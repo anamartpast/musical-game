@@ -1,5 +1,5 @@
 const STEPS_PER_LEVEL = 3;
-const MAX_LEVEL = 3;
+const MAX_LEVEL = 2;
 
 export function setScore(points) {
     localStorage.setItem('score', points);
